@@ -128,5 +128,9 @@ public class Main {
         double toKelvin = temperature.toKelvin(10);
         System.out.println("Kelvin: " + toKelvin);
          */
+
+        // Mobile phone
+        MobilePhone phone = new MobilePhone("Samsung","07A",100,256);
+        System.out.println(phone);
     }
 }
