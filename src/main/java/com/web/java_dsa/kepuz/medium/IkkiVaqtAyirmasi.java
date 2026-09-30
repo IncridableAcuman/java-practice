@@ -12,7 +12,15 @@ public class IkkiVaqtAyirmasi {
         String second = scanner.next();
         LocalTime firstLocalTime = LocalTime.parse(first);
         LocalTime secondLocalTime = LocalTime.parse(second);
-        LocalTime res = firstLocalTime.plusHours(secondLocalTime.getHour()).plusMinutes(secondLocalTime.getMinute()).plusSeconds(secondLocalTime.getSecond());
-        System.out.println(res);
+        long totalSeconds = Duration.between(secondLocalTime,firstLocalTime).toSeconds();
+
+        if (totalSeconds < 0){
+            totalSeconds += 24 * 3600;
+        }
+        long hours = totalSeconds / 3600;
+        long minutes = (totalSeconds % 3600) / 60;
+        long seconds = totalSeconds % 60;
+
+        System.out.printf("%02d:%02d:%02d\n",hours,minutes,seconds);
     }
 }
